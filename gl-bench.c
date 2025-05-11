@@ -42,5 +42,5 @@ int main(int argc, char **argv) {
   /* calculate elapsed time */
   double elapsed = 1000.0 * (end - start) / CLOCKS_PER_SEC;
 
-  printf("took %f ms to compute %d generations\n", elapsed, generations);
+  printf("took %.2f ms to compute %d generations\n", elapsed, generations);
 }
