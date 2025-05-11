@@ -27,7 +27,7 @@ int gl_grid_compute_alive_neighbours(gl_grid *grid, int y, int x) {
         continue;
 
       // ensure dy and dx are within the grid bounds
-      if (dy > 0 && dy < GRID_WIDTH && dx > 0 && dy < GRID_HEIGHT) {
+      if (dy > 0 && dy < GRID_WIDTH && dx > 0 && dx < GRID_HEIGHT) {
 
         if (grid->grid[dy][dx])
           counter++;
