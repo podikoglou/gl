@@ -2,6 +2,7 @@
 #include "opts.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void gl_grid_init_zero(gl_grid *grid) {
   for (int y = 0; y < GRID_HEIGHT; y++) {
@@ -41,20 +42,13 @@ int gl_grid_compute_alive_neighbours(gl_grid *grid, int y, int x) {
 }
 
 void gl_grid_generation(gl_grid *grid) {
-  int neighbours[GRID_HEIGHT][GRID_WIDTH];
+  gl_grid *copy;
+  memcpy(&copy, &grid, sizeof(grid));
 
   for (int y = 0; y < GRID_HEIGHT; y++) {
     for (int x = 0; x < GRID_WIDTH; x++) {
-      int alive_neighbours = gl_grid_compute_alive_neighbours(grid, y, x);
-
-      neighbours[y][x] = alive_neighbours;
-    }
-  }
-
-  for (int y = 0; y < GRID_HEIGHT; y++) {
-    for (int x = 0; x < GRID_WIDTH; x++) {
-      bool alive = grid->grid[y][x];
-      int alive_neighbours = neighbours[y][x];
+      bool alive = copy->grid[y][x];
+      int alive_neighbours = gl_grid_compute_alive_neighbours(copy, y, x);
 
       bool new_state = alive ? (alive_neighbours == 2 || alive_neighbours == 3)
                              : alive_neighbours == 3;
