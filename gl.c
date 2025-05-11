@@ -1,10 +1,19 @@
 #include "gl.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-void gl_grid_init(gl_grid *grid) {
+void gl_grid_init_zero(gl_grid *grid) {
   for (int y = 0; y < GRID_HEIGHT; y++) {
     for (int x = 0; x < GRID_WIDTH; x++) {
       grid->grid[y][x] = false;
+    }
+  }
+}
+
+void gl_grid_init_rand(gl_grid *grid) {
+  for (int y = 0; y < GRID_HEIGHT; y++) {
+    for (int x = 0; x < GRID_WIDTH; x++) {
+      grid->grid[y][x] = rand() & 1;
     }
   }
 }
