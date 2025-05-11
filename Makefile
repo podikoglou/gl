@@ -1,1 +1,1 @@
-gl-run: gl-run.c
+gl-run: gl.c gl-run.c
