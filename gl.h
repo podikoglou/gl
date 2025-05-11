@@ -3,6 +3,7 @@
 
 #include "opts.h"
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct gl_grid {
   bool grid[GRID_HEIGHT][GRID_WIDTH];
@@ -63,6 +64,18 @@ void gl_grid_generation(gl_grid *grid) {
 
       neighbours[y][x] = new_state;
     }
+  }
+}
+
+void gl_grid_print(gl_grid *grid) {
+  for (int y = 0; y < GRID_HEIGHT; y++) {
+    for (int x = 0; x < GRID_WIDTH; x++) {
+      bool alive = grid->grid[y][x];
+
+      printf(alive ? "1" : " ");
+    }
+
+    printf("\n");
   }
 }
 
