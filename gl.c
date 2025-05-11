@@ -12,8 +12,8 @@ void gl_grid_init(gl_grid *grid) {
 int gl_grid_compute_alive_neighbours(gl_grid *grid, int y, int x) {
   int counter = 0;
 
-  for (int dy = dy - 1; dy < dy + 1; dy++) {
-    for (int dx = dx - 1; dx < dx + 1; dy++) {
+  for (int dy = y - 1; dy < y + 1; dy++) {
+    for (int dx = x - 1; dx < x + 1; dx++) {
       // ignore center clel
       if (dy == y || dx == x)
         continue;
