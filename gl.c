@@ -63,7 +63,7 @@ void gl_grid_generation(gl_grid *grid) {
         new_state = alive_neighbours == 3;
       }
 
-      neighbours[y][x] = new_state;
+      grid->grid[y][x] = new_state;
     }
   }
 }
