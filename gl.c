@@ -56,13 +56,8 @@ void gl_grid_generation(gl_grid *grid) {
       bool alive = grid->grid[y][x];
       int alive_neighbours = neighbours[y][x];
 
-      bool new_state;
-
-      if (alive) {
-        new_state = alive_neighbours == 2 || alive_neighbours == 3;
-      } else {
-        new_state = alive_neighbours == 3;
-      }
+      bool new_state = alive ? (alive_neighbours == 2 || alive_neighbours == 3)
+                             : alive_neighbours == 3;
 
       grid->grid[y][x] = new_state;
     }
