@@ -8,6 +8,14 @@ typedef struct gl_grid {
   bool grid[GRID_HEIGHT][GRID_WIDTH];
 } gl_grid;
 
+void gl_grid_init(gl_grid *grid) {
+  for (int y = 0; y < GRID_HEIGHT; y++) {
+    for (int x = 0; x < GRID_WIDTH; x++) {
+      grid->grid[y][x] = false;
+    }
+  }
+}
+
 int gl_grid_compute_alive_neighbours(gl_grid *grid, int y, int x) {
   int counter = 0;
 
