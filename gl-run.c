@@ -1,7 +1,11 @@
-#include "opts.h"
-#include <stdio.h>
+#include "gl.h"
 
 int main(void) {
-  printf("width = %d\n", GRID_WIDTH);
-  printf("height = %d\n", GRID_HEIGHT);
+  gl_grid grid;
+
+  gl_grid_init(&grid);
+
+  gl_grid_print(&grid);
+  gl_grid_generation(&grid);
+  gl_grid_print(&grid);
 }
