@@ -43,13 +43,13 @@ int gl_grid_compute_alive_neighbours(gl_grid *grid, int y, int x) {
 }
 
 void gl_grid_generation(gl_grid *grid) {
-  gl_grid *copy;
-  memcpy(&copy, &grid, sizeof(grid));
+  gl_grid copy;
+  memcpy(&copy, grid, sizeof(gl_grid));
 
   for (int y = 0; y < GRID_HEIGHT; y++) {
     for (int x = 0; x < GRID_WIDTH; x++) {
-      bool alive = copy->grid[y][x];
-      int alive_neighbours = gl_grid_compute_alive_neighbours(copy, y, x);
+      bool alive = copy.grid[y][x];
+      int alive_neighbours = gl_grid_compute_alive_neighbours(&copy, y, x);
 
       bool new_state = alive ? (alive_neighbours == 2 || alive_neighbours == 3)
                              : alive_neighbours == 3;
