@@ -25,8 +25,9 @@ int gl_grid_compute_alive_neighbours(gl_grid *grid, int y, int x) {
 
   for (int dy = y - 1; dy <= y + 1; dy++) {
     for (int dx = x - 1; dx <= x + 1; dx++) {
-      // ignore center clel
-      if (dy == y || dx == x)
+
+      // ignore center cell
+      if (dy == y && dx == x)
         continue;
 
       // ensure dy and dx are within the grid bounds
