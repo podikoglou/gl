@@ -16,3 +16,6 @@ float nn_relu(float x) {
 }
 
 float nn_sigmoid(float x) { return (1 / (1 + powf(e, -x))); }
+
+float nn_sigmoid_deriv(float x) { return nn_sigmoid(x) * (1 - nn_sigmoid(x)); }
+

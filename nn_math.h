@@ -5,4 +5,5 @@ float nn_random_weight_xavier();
 float nn_relu(float x);
 float nn_sigmoid(float x);
 
+float nn_sigmoid_deriv(float x);
 #endif
