@@ -11,5 +11,6 @@ typedef struct nn {
 
 void nn_init(nn *nn);
 float nn_forward(nn *nn, float x[9]);
+float nn_backward(nn *nn, float expected, float actual);
 
 #endif
